@@ -1,0 +1,58 @@
+import numpy as np
+import pandas as pd
+
+df = pd.read_excel(
+	'',
+	sheet_name = '',
+	skiprows=range(20),
+	skipfooter=2)
+print('data read into a pandas dataframe!')
+
+print(df.shape)
+
+#clean up the dataset to remove columns that are not informative to us for visualization
+df.drop(['','', ''], axis= 1, inplace=True)
+df.head()
+
+#rename some of the columns so that they make sense
+df.rename(columns={'':'', '':''}, inplace=True)
+df.head()
+
+#For consistency, ensure that all column labels of type string.
+all(isinstance(column, str) for column in df.columns)
+
+df.columns = list(map(str, df_can.columns))
+all(isinstance(column, str) for column in df.columns)
+
+#set the country name as index-useful for quickly looking up countries using .loc method
+df.set_index('Country', inplace=True)
+df.head()
+
+#add total column
+df['Total'] = df.sum(axis=1)
+
+#creat a list of years from 1980 -2013
+years = list(map(str, range(1980, 2014)))
+years
+
+#visualizing data using matplotlib
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
+#area plots
+df.sort_values(['Total'], ascending=False, axis=0, inplace=True)
+df_top5 = df_can.head()
+
+df_top5 = df_top5[years].transpose()
+df_top5.head()
+
+df_top5.index = df_top5.index.map(int)
+df_top5.plot(kind='area',
+             stacked=False,
+             figsize=(20,10))
+
+plt.title('Immigration Trend of top5')
+plt.ylabel('Number of Immigrants')
+plt.xlabel('Years')
+
+plt.show()
