@@ -9,3 +9,5 @@ Conveying total amounts over time as well as some sub-categorical breakdowns (bu
 Emphasizing a part-to-whole relationship over time when one part is very large, or changes from being very large to very small
 
 Showing change over time in individual panels of a small multiple chart
+
+##Example:![Figure 2022-01-11 130530](https://user-images.githubusercontent.com/97059233/149005499-ec67de9a-2409-4f2a-ab49-05fb7f644c56.png)
